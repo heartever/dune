@@ -81,7 +81,27 @@ CFLAGS set.  Before running the libc build set the following flags.
 # setenv CFLAGS "-U_FORTIFY_SOURCE -O2 -fno-stack-protector"
 ```
 
-The alternate glibc can be used by prefixing dune apps with the
+run
+'''
+# apt install tcsh
+# tcsh
+'''
+to switch to csh shell to run the above command.
+
+If the above is not set, the error message "inlining failed in call to always_inline ‘syslog’: function not inlinable" shows up.
+
+multiple definition of `__libc_multiple_libcs' is caused by gcc version 5.
+However switching to gcc version 4 seems not fixing the issue.
+
+So I tried the glibc commit [https://sourceware.org/git/?p=glibc.git;a=commit;h=d40dbe722f004f999b589de776f7e57e564dda01](https://sourceware.org/git/?p=glibc.git;a=commit;h=d40dbe722f004f999b589de776f7e57e564dda01), which fixes the issue.
+
+To clean the libc build.
+'''
+# cd eglibc-2.14/eglibc-build
+# make clean
+'''
+
+## The alternate glibc can be used by prefixing dune apps with the
 `dune_env.sh` script.
 
 ----
