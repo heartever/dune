@@ -112,7 +112,8 @@ static void dune_apic_send_ipi_x2(u8 vector, u32 destination_apic_id)
  */
 static void dune_apic_send_ipi_x(u8 vector, u8 destination_apic_id)
 {
-	__default_send_IPI_dest_field(destination_apic_id, vector, APIC_DEST_PHYSICAL);
+    printk("disabled function dune_apic_send_ipi_x is called.\n");
+//	__default_send_IPI_dest_field(destination_apic_id, vector, APIC_DEST_PHYSICAL);
 }
 
 /* dune_apic_send_ipi
