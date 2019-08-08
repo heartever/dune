@@ -103,6 +103,9 @@ To clean the libc build.
 
 ## The alternate glibc can be used by prefixing dune apps with the
 `dune_env.sh` script.
+'''
+# ./dune_env.sh test/hello
+'''
 
 ----
 # Limitations
